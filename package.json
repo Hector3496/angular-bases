@@ -6,8 +6,11 @@
     "start": "ng serve -o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "build:href": "ng build --base-href ./",
+    "copy:dist": "copyfiles dist/bases/* ./docs -f",
+    "delete:docs": "del docs",
     "test": "ng test",
-    "build:github": "npm run del docs && npm run ng build --base-href ./ && run copyfiles dist/bases/* ./docs -f"
+    "build:github": "npm run delete:docs && npm run build:href && run copy:dist"
   },
   "private": true,
   "dependencies": {
